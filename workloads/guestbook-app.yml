@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-app
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  source:
+    repoURL: https://github.com/CyrusTC/argosam
+    targetRevision: HEAD
+    path: guestbook/overlays/sit
+  destination:
+    server: https://2EA9953751BC8176A9B07206BF760794.yl4.ap-southeast-1.eks.amazonaws.com
+    namespace: guestbook-app
