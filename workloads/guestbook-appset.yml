@@ -19,7 +19,7 @@ spec:
           environment: prod
   template:
     metadata:
-      name: '{{name}}-guestbook-{{environment}}'
+      name: '{{name}}-guestbook'
     spec:
       project: default
       syncPolicy:
