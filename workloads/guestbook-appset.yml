@@ -8,10 +8,13 @@ spec:
     - clusters:
         selector:
           matchLabels:
-            environment: dev
+            environment:
+              - dev
+              - test
+              - prod
   template:
     metadata:
-      name: '{{name}}-guestbook-dev'
+      name: '{{name}}-guestbook-{{environment}}'
     spec:
       project: default
       syncPolicy:
@@ -24,7 +27,7 @@ spec:
       source:
         repoURL: https://github.com/CyrusTC/argosam
         targetRevision: HEAD
-        path: guestbook-set/overlays/sit
+        path: guestbook-set/overlays/{{environment}}
         parameters:
           - name: "argo-cluster-name"
             value: '{{name}}'
