@@ -32,7 +32,7 @@ spec:
       source:
         repoURL: https://github.com/CyrusTC/argosam
         targetRevision: HEAD
-        path: guestbook-set/overlays/{{environment}}
+        path: guestbook-set/overlays/{{labels.environment}}
         parameters:
           - name: "argo-cluster-name"
             value: '{{name}}'
