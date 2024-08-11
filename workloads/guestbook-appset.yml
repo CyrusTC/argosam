@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook-app-set
+  namespace: argocd
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            environment: dev
+  template:
+    metadata:
+      name: '{{name}}-guestbook-dev'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+      source:
+        repoURL: https://github.com/CyrusTC/argosam
+        targetRevision: HEAD
+        path: guestbook-set/overlays/sit
+        parameters:
+          - name: "argo-cluster-name"
+            value: '{{name}}'
+          - name: "argo-cluster-server"
+            value: '{{server}}'
+      destination:
+        server: '{{server}}'
+        namespace: guestbook-app
