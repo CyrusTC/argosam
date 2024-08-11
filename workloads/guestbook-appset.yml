@@ -33,11 +33,11 @@ spec:
         repoURL: https://github.com/CyrusTC/argosam
         targetRevision: HEAD
         path: guestbook-set/overlays/{{metadata.labels.environment}}
-        parameters:
-          - name: "argo-cluster-name"
-            value: '{{name}}'
-          - name: "argo-cluster-server"
-            value: '{{server}}'
+        kustomize:
+          commonAnnotationsEnvsubst: true
+          commonAnnotations:
+            argo-cluster-name: '{{name}}'
+            argo-cluster-server: '{{server}}'
       destination:
         server: '{{server}}'
         namespace: guestbook-app
