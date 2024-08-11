@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: guestbook-ui
+  name: set-guestbook-ui
   annotations:
     alb.ingress.kubernetes.io/group.name: 'dev2-app-set'
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
@@ -21,6 +21,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: guestbook-ui
+                name: set-guestbook-ui
                 port:
                   number: 80

@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: set-guestbook-ui
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: set-guestbook-ui
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: set-guestbook-ui
     spec:
       restartPolicy: Always
       securityContext:
