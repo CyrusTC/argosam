@@ -38,6 +38,7 @@ spec:
           commonAnnotations:
             argo-cluster-name: '{{name}}'
             argo-cluster-server: '{{server}}'
+            "alb.ingress.kubernetes.io/group.name": '{{name}}'
       destination:
         server: '{{server}}'
         namespace: guestbook-app
