@@ -5,13 +5,20 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - clusters:
-        selector:
-          matchLabels:
-            environment:
-              - dev
-              - test
-              - prod
+    - matrix:
+        generators:
+          - clusters:
+              selector:
+                matchLabels:
+                  environment: dev
+          - clusters:
+              selector:
+                matchLabels:
+                  environment: test
+          - clusters:
+              selector:
+                matchLabels:
+                  environment: prod
   template:
     metadata:
       name: '{{name}}-guestbook-{{environment}}'
