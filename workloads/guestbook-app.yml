@@ -17,5 +17,5 @@ spec:
     targetRevision: HEAD
     path: guestbook/overlays/sit
   destination:
-    server: https://2EA9953751BC8176A9B07206BF760794.yl4.ap-southeast-1.eks.amazonaws.com
+    server: dev-cluster-1.30-1
     namespace: guestbook-app
