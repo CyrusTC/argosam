@@ -15,7 +15,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-internal: 'true'
 spec:
   rules:
-    - host: argo-alb.cyrustc.io
+    - host: eks.cyrustc.people.aws.dev
       http:
         paths:
           - path: "/standalone-guestbook"
