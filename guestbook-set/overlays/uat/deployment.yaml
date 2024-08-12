@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: set-guestbook-ui
 spec:
-  replicas: 2
+  replicas: to
   template:
     spec:
       containers:
